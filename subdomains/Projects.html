@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Website made completely by a full time computer programming student">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../css/main.css" type="text/css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
+	
+	<link rel="apple-touch-icon" sizes="57x57" href="../images/Favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../images/Favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../images/Favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../images/Favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../images/Favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../images/Favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../images/Favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../images/Favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../images/Favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../images/Favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../images/Favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../images/Favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../images/Favicon/favicon-16x16.png">
+	<link rel="manifest" href="../images/Favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../images/Favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="shortcut icon" href="../images/Favicon/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../images/Favicon/favicon.ico" type="image/x-icon">
+	
+	<title>The Real J.O.</title>
+</head>
+
+<body>
+<div class="container-fluid">
+
+<h1>www.realjesseowens.com<img src="../images/The_Yellow_Sign.svg" alt="My Logo" class="center"></h1>
+<h2>The Real J.O.</h2>
+<header>
+<!-- Navigation bar starts here -->
+	<nav class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<button aria-label="button" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li><a href="../index.html">Home</a></li>
+				<li class="active"><a href="../subdomains/Projects.html">Projects</a></li>
+				<li><a href="../subdomains/FAQ.html">FAQ</a></li>
+				<li><a href="../subdomains/Contact.php">Contact</a></li>
+				<li><a href="../subdomains/Resume.html">Resume</a></li>
+			</ul>
+		</div>
+	</nav>
+<!-- Navigation bar end here -->
+</header>
+
+<main>
+
+<div class="row">
+	<div class="col-xs-12 col-sm-6 col-md-4 col1">
+		<h3>C++ Project</h3>
+		<p>Here I've provided a downloadable exe file for one of my C++ projects that I previously worked on. It's a zork inspired text based game, that uses advanced classes and pointers to direct the player character through rooms.</p>
+		<a href="../projects/233FinalProjectWorkingVersion.exe" download>C++ Zork Game</a><br>
+		<a href="../projects/233FinalBackupCode.txt" download>Zork Game Code</a>
+		
+<img id="myImg" src="../images/C++Zork2.JPG" alt="Zork Game">
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption">Zork Game</div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+
+<img id="myImg4" src="../images/C++ZorkUI.JPG" alt="Zork UI">
+		
+		
+			<!-- The Modal -->
+			<div id="myModal4" class="modal4">
+			  <span class="close4">&times;</span>
+			  <img class="modal-content4" id="img04">
+			  <div id="caption4">Zork UI</div>
+			</div>
+
+			<script>
+			// Get the modal
+			var modal = document.getElementById('myModal4');
+
+			// Get the image and insert it inside the modal - use its "alt" text as a caption
+			var img = document.getElementById('myImg4');
+			var modalImg = document.getElementById("img04");
+			var captionText = document.getElementById("caption4");
+			img.onclick = function(){
+				modal.style.display = "block";
+				modalImg.src = this.src;
+				captionText.innerHTML = this.alt;
+			}
+
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close4")[0];
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() { 
+				modal.style.display = "none";
+			}
+			</script>
+	</div>
+
+
+
+	<div class="col-xs-12 col-sm-6 col-md-4 col2">
+		<h3>VB.net Project</h3>
+		<p>Next You can download an example of a VB.net Program that I created that allows you to add and delete bagels from a list. This program accounts for duplicates as well as implementing for loops and validation.</p>
+		<a href="../projects/Bagels.exe" download>Bagels Executable</a><br>
+		<a href="../projects/BagelsCode.txt" download>Bagels code download</a>
+		
+<img id="myImg2" src="../images/Bagel.jpg" alt="Bagel Code">
+		
+		
+<!-- The Modal -->
+<div id="myModal2" class="modal2">
+  <span class="close2">&times;</span>
+  <img class="modal-content2" id="img02">
+  <div id="caption2">Bagel Code Example</div>
+</div>
+
+<script>
+
+
+// Get the modal
+var modal = document.getElementById('myModal2');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg2');
+var modalImg = document.getElementById("img02");
+var captionText = document.getElementById("caption2");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close2")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+
+<img id="myImg5" src="../images/BagelUI.jpg" alt="Bagel UI">
+		
+		
+<!-- The Modal -->
+<div id="myModal5" class="modal5">
+  <span class="close5">&times;</span>
+  <img class="modal-content5" id="img05">
+  <div id="caption5">Bagel UI</div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal5');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg5');
+var modalImg = document.getElementById("img05");
+var captionText = document.getElementById("caption5");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close5")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+		
+	</div>
+
+
+
+	<div class="col-xs-12 col-sm-6 col-md-4 col3">
+		<h3>HTML/CSS Project</h3>
+		<p>The best example I can give when it comes to HTML/CSS is this site. Everything done on this site has been entirely by me.</p> <p>If you are interested in checking the code for the site you can just right click on the page and click inspect. It will show you all of my styling for the site, as well as bootstrap, and a little jquery.</p>
+		
+		<img id="myImg3" src="../images/CSS_example.JPG" alt="CSS Code Example">
+		
+		<!-- The Modal -->
+<div id="myModal3" class="modal3">
+  <span class="close3">&times;</span>
+  <img class="modal-content3" id="img03">
+  <div id="caption3">CSS Example Code</div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal3');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg3');
+var modalImg = document.getElementById("img03");
+var captionText = document.getElementById("caption3");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close3")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+	</div>
+
+
+<div class="col-xs-12 col-sm-6 col-md-4 col4">
+		<h3>ASP.NET Example</h3>
+		<p>Below is a short code snippet from a project I worked on that used a books database to create a web application that allowed the user to edit, add, or delete new books from the system. It also included data validation using validators such as range and custom validators. You can click below to download the zipped up file containing the project.</p>
+		<a href="../projects/OwensJDB03.zip" download>ASP.NET Project</a><br>
+		
+<img id="myImg6" src="../images/ASP_NET.JPG" alt="ASP.NET Project">
+
+<!-- The Modal -->
+<div id="myModal6" class="modal6">
+  <span class="close6">&times;</span>
+  <img class="modal-content6" id="img06">
+  <div id="caption6">ASP.Net Code</div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal6');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg6');
+var modalImg = document.getElementById("img06");
+var captionText = document.getElementById("caption6");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close6")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+</div>
+
+
+
+
+
+<div class="col-xs-12 col-sm-6 col-md-4 col5">
+		<h3>MySQL Example</h3>
+		<p>Below is sample code of a MySQL project I worked on, where I had to create a database, and then populate the fields with data. You can click below to download the SQL file I created that has all of my statements on it.</p>
+		<a href="../projects/OwensJesseH8.sql" download>MySql Statements</a><br>
+		
+<img id="myImg7" src="../images/MySQL.JPG" alt="MySQL Statements">
+
+<!-- The Modal -->
+<div id="myModal7" class="modal7">
+  <span class="close7">&times;</span>
+  <img class="modal-content7" id="img07">
+  <div id="caption7">MySQL</div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal7');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg7');
+var modalImg = document.getElementById("img07");
+var captionText = document.getElementById("caption7");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close7")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+</div>
+
+
+<div class="col-xs-12 col-sm-6 col-md-4 col6">
+		<h3>Javascript Example</h3>
+		<p>Below is sample code of a Javascript project I worked on, where I had create the code for a change calculator that gave exact change based on how many cents were given.</p>
+		<a href="../projects/change_calculator.zip" download>Change Calculator</a><br>
+		<a href="../projects/change_calculator_code.txt" download>Change Calculator Code</a>
+		
+<img id="myImg8" src="../images/Javascript_example.JPG" alt="Javascript code">
+
+<!-- The Modal -->
+<div id="myModal8" class="modal8">
+  <span class="close8">&times;</span>
+  <img class="modal-content8" id="img08">
+  <div id="caption8">Javascript</div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal8');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg8');
+var modalImg = document.getElementById("img08");
+var captionText = document.getElementById("caption8");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close8")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+</div>
+
+<div class="col-xs-12 col-sm-6 col-md-4 col7">
+		<h3>Javascript Example</h3>
+		<p>Below is sample code of a Java Android App I created that is for randomly generating characters.</p>
+		<a href="../projects/DDCharacterCreator.zip" download>D&D Character Creator</a><br>
+		
+<img id="myImg9" src="../images/JavaUI.JPG" alt="Java code">
+
+<!-- The Modal -->
+<div id="myModal9" class="modal9">
+  <span class="close9">&times;</span>
+  <img class="modal-content9" id="img09">
+  <div id="caption9">Java</div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal9');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg9');
+var modalImg = document.getElementById("img09");
+var captionText = document.getElementById("caption9");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close9")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+</div>
+
+	
+</div>
+
+</main>
+
+<footer>
+	<hr>
+	<h4>&copy Jesse Owens 2019</h4>
+</footer>
+
+</div>
+
+</body>
+
+</html>

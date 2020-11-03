@@ -1,0 +1,570 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include<algorithm>
+
+using namespace std;
+
+class Room
+{
+public:
+	Room(string n, string desc);
+	void pRoomName();
+	void pRoomDesc();
+	void getRoomItems();
+	void setRoomItems(string items);
+
+	Room* pEast;
+	Room* pWest;
+	Room* pNorth;
+	Room* pSouth;
+
+	vector<string> roomInventory;
+	string rName;
+
+private:
+	
+	string rDesc;
+
+	
+};
+
+void Room::setRoomItems(string items)
+{
+	roomInventory.push_back(items);
+}
+
+void Room::getRoomItems()
+{
+	vector<string>::iterator iter;
+
+	if (roomInventory.size() != 0)
+	{
+		cout << "\nRoom Items: " << endl;
+
+		for (iter = roomInventory.begin(); iter != roomInventory.end(); ++iter)
+		{
+			cout << *iter << endl;
+		}
+	}
+	else
+	{
+		cout << "\nYou don't see any items around to pick up." << endl;
+	}
+}
+
+Room::Room(string n, string desc)
+{
+	rName = n;
+	rDesc = desc;
+}
+
+void Room::pRoomName()
+{
+	cout << rName << endl;
+}
+
+void Room::pRoomDesc()
+{
+	cout << rDesc << endl;
+}
+
+class Map
+{
+public:
+	Map();
+	~Map();
+
+
+	Room* mStart;
+	vector<string> useItemInventory;
+};
+
+Map::~Map()
+{
+	delete mStart->pNorth;
+	delete mStart->pEast;
+	delete mStart->pSouth;
+	delete mStart->pWest;
+}
+
+Map::Map()
+{
+	Room* p1 = new Room("Camp Middle", "\n\nYou are standing in the middle of campgrounds. \nNorth of you looks to head through the woods to the lake. \nWest leads towards the road out of the camp. \nSouth takes you to the Higgins Haven cabin. \nFinally East puts you on the path towards the counseler and camper cabins.\n");
+	mStart = p1;
+	useItemInventory.push_back("FlareSpot");
+
+	Room* p2 = new Room("\nNorth Woods\n", "\nWhile walking down this trail you notice footprints have recently traveled down it. \nTwo sets show a small petite footprint moving frantically further. \nAnother large set of prints shows to be lagging behind, clearly belonging to a tall, large man.");
+	Room* p3 = new Room("\nEast Woods\n", "\nYou begin walking down the road towards the camper and counseler bunks. \nMaybe everbody went back to their rooms. \nIt's still pretty early though...");
+	Room* p4 = new Room("\nCabin Entrance\n", "\nYou're now standing in front of the Higgins Haven cabin. \nHere is where the counselers hang out after dark, and all the kids have gone to sleep. \nThe power is out though. Must be the work of the storm. \nThe door is cracked open, seemingly inviting you to walk inside.");
+	Room* p5 = new Room("\nWest Woods\n", "\nThese woods take you towwards the wooden bridge that you and your friends drove across to get here. \nStrangely you didn't see the car at the middle of the camp. \nMaybe someone had to go get some supplies for the storm. \nYou hope they drive safe in this storm.");
+	Room* p6 = new Room("\nLake Shore\n", "You notice that the footprints veer off towards the boat shack, after you get off the trail you've been walking down. ");
+	Room* p7 = new Room("\nCounseler Road\n", "This road splits off into four different directions. North takes you to the Barn, South goes to the Power Shed, East heads back towards the middle of the camp, and west keeps taking you to the Bunks.");
+	Room* p8 = new Room("Bottom Floor", "\n\nYou creak open the door. \nInside you notice it's dead quiet. \nThere are two floors higher in this cabin, a second floor, and top floor. \nThere is also a basement door down here. \nThe hairs on the back of your neck seem to stand up as you walk around in this cabin. \nSomething is not right...\n");
+
+	useItemInventory.push_back("Locked Basement Door");
+
+	Room* p9 = new Room("Road Block", "\n\nYou see Paul's car up ahead, but the car is turned off. \nWhen you look inside you see Paul's mangled body in the driver's seat. \nThe car's hood is up and the inside smashed to pieces. \nThis car won't be running, and it's miles to the nearest town. \nThe weather is also not letting up anytime soon. \nIt seems travel this way is impossible right now.");
+	Room* p10 = new Room("\nBoat Shack\n", "\nYou walk inside of the boat shack, and you hear a strange dripping noise. \nWhen you follow the noise, you notice Vera, one of the other counselers. \nShe's dead!!! \nYou start to panick as you see her pinned to the wall of the boat shack by a long sharp object. You notice boat supplies in here, as well as Flares and Flare gun.\n");
+
+	p10->setRoomItems("Flares");
+
+	Room* p11 = new Room("\nSide Trail\n", "\nYou follow the somewhat hidden trail that runs behind the power shed. \nNobody seemed to even know this trail existed before. \nAfter walking through the woods and brush, you come across a small wooden shack, with a dim light coming from the inside.");
+	Room* p12 = new Room("\nSecond Floor\n", "\nWhen you get to the second floor, you quickly rush over to the phone, when you pick it up to make a call, you notice that there is no dial tone, the line has been cut! \nYou also notice that all but one of the keys have been taken from the key stand...the basement key.");
+
+	p12->setRoomItems("BasementKey");
+
+	Room* p13 = new Room("\nTop Floor\n", "\nThe door at the end of hall on the top floor is slightly cracked, with a dim light spilling through. \nWhen you walk to the door and open it, you notice its completely dark except for a candle on a stand. \nWhen you brighten it, you reel back in horror as you see Sandra and Scott lying in the bed, impaled by a long pole! \nWho could have done something so terrible!");
+	Room* p14 = new Room("Basement", "\n\nYou see a multitude of dusty and old items down here. \nYou see a supplies box, with what seems to be a Spare Fuse that goes to the Power Shed. \nYou also notice an old dresser, after inspecting the dresser you see a space behind it with some makeshift door. \nThe door seems forced shut, and won't open. \nA woodcutting axe from the Barn would make quick work of this door.\n");
+
+	useItemInventory.push_back("Dark Room");
+	useItemInventory.push_back("Makeshift Door");
+
+	p14->setRoomItems("Fuse");
+
+	Room* p15 = new Room("\nTunnel\n", "\nBehind the secret wooden door in the basement, shows a dark, dank tunnel. \nTraveling down this tunnel, you can make out that this tunnel seems to have been dug by hand. \nIt looks unstable and who knows where it goes. \nBetter be very careful.");
+	Room* p16 = new Room("Jason's Shack", "\nYou walk inside the small shack. \nWhen you get inside, you notice a pedestal in the middle of the dilapidated room, and on it lies...A dessicated head! \nThis shack also has blood drops all over the place. \nYou see an old worn Sweater lying in front of the head. \nTools such as machetes, axes, and other sharp objects line the walls. \nThis must be the killers shack!\n");
+
+	useItemInventory.push_back("The Killer");
+	p16->setRoomItems("Sweater");
+
+	Room* p17 = new Room("\nBarn\n", "\nYou walk into this giant barn, where you are quickly met face to face with someone who has been hung from the ceiling. \nTheir mangled body dangles ominously in front of you. \nYou notice a Wood Axe lying in the hay to the right.");
+
+	p17->setRoomItems("Axe");
+
+	Room* p18 = new Room("Power Shed", "\n\nWhen you walk into the Power Shed, you the box seems in disrepair. \nThere is also...a person lying on top of it. \nAfter you pulled them off, you notice their head had been smashed through the box, mangling both. \nIt's Mitch! He's been killed! You start to really panick now, but try and keep your cool. \nYou notice that the power box can still be fixed with a new fuse. \nMaybe you can fix this, and then get back to the Higgin's Haven cabin and call the police, when the power is back on. \nYou should move quickly.\n");
+	Room* p19 = new Room("\nCamper Bunks\n", "\nYou're now at the camper bunks. \nThey are empty right now, because camp doesn't start until next week. \nThe bunks seem silent and empty with no kids there.");
+	Room* p20 = new Room("Counseler Bunks", "\n\nYou open the door to your bunk room. \nYou look around the room and see that none of the other counselers are here. \nWhere could they be at? You see a flashlight sitting on your bed.\n");
+
+	useItemInventory.push_back("Locked Dorms");
+	p20->setRoomItems("Flashlight");
+
+	p1->pNorth = p2;	//Move from Starting room to North Woods
+	p1->pEast = p3;		//Move from Starting room to East Woods
+	p1->pSouth = p4;	//Move from Starting room to Cabin Entrance
+	p1->pWest = p5;		//Move from Starting room to West Woods
+
+	p2->pSouth = p1;	//Move from North Woods to Starting room
+	p2->pNorth = p6;	//Move from North Woods to Lake Shore
+	p2->pEast = 0;
+	p2->pWest = 0;
+
+	p3->pEast = p7;		//Move from East Woods to Counseler Road
+	p3->pWest = p1;		//Move from East Woods to Starting room
+	p3->pNorth = 0;
+	p3->pSouth = 0;
+
+	p4->pNorth = p1;	//Move from Cabin Entrance to Starting room
+	p4->pSouth = p8;	//Move from the Cabin Entrance into the Bottom Floor
+	p4->pEast = 0;
+	p4->pWest = 0;
+
+	p5->pEast = p1;		//Move from West Woods to Starting room
+	p5->pWest = p9;		//Move from West Woods to Road Block
+	p5->pNorth = 0;
+	p5->pSouth = 0;
+
+	p6->pSouth = p2;	//Move from Lake Shore to North Woods
+	p6->pEast = p10;	//Move from Lake Shore to Boat Shack
+	p6->pNorth = 0;
+	p6->pWest = 0;
+
+	p7->pWest = p3;		//Move from Counseler Road to East Woods
+	p7->pEast = p19;	//Move from Counseler Road to Camper Bunks
+	p7->pNorth = p17;	//Move from Counseler Road to Barn
+	p7->pSouth = p18;	//Move from Counseler Road to Power Shed
+
+	p8->pNorth = p4;	//Move from Bottom Floor Cabin Entrance
+	p8->pWest = p12;	//Move from Bottom Floor to Second Floor
+	p8->pSouth = p14;	//Move from Bottom Floor to Basement
+	p8->pEast = 0;
+
+	p9->pEast = p5;		//Move from Road Block to West Woods
+	p9->pWest = 0;
+	p9->pNorth = 0;
+	p9->pSouth = 0;
+
+	p10->pWest = p6;	//Move from Boat Shack to Lake Shore
+	p10->pEast = 0;
+	p10->pNorth = 0;
+	p10->pSouth = 0;
+
+	p11->pNorth = p18;	//Move from Side Trail to Power Shed
+	p11->pSouth = p16;	//Move from Side Trail to Jason's Shack
+	p11->pEast = 0;
+	p11->pWest = 0;
+
+	p12->pEast = p8;	//Move from Second Floor to Bottom Floor
+	p12->pWest = p13;	//Move from Second Floor to Top Floor
+	p12->pNorth = 0;
+	p12->pSouth = 0;
+
+	p13->pEast = p12;	//Move from Top Floor to Second Floor
+	p13->pNorth = 0;
+	p13->pSouth = 0;
+	p13->pWest = 0;
+
+	p14->pNorth = p8;	//Move from Basement to Bottom Floor
+	p14->pSouth = p15;	//Move from Basement to Tunnel
+	p14->pEast = 0;
+	p14->pWest = 0;
+
+	p15->pNorth = p14;	//Move from Tunnel to Basement
+	p15->pEast = p16;	//Move from Tunnel to Jason's Shask
+	p15->pSouth = 0;
+	p15->pWest = 0;
+
+	p16->pWest = p15;	//Move from Jason's Shack to Tunnel
+	p16->pNorth = p11;	//Move from Jason's Shack to Side Trail
+	p16->pEast = 0;
+	p16->pSouth = 0;
+
+	p17->pSouth = p7;	//Move from Barn to Counseler Road
+	p17->pNorth = 0;
+	p17->pEast = 0;
+	p17->pWest = 0;
+
+	p18->pNorth = p7;	//Move from Power Shed to Counseler Road
+	p18->pSouth = p11;	//Move from Power Shed to Side Trail
+	p18->pEast = 0;
+	p18->pWest = 0;
+
+	p19->pWest = p7;	//Move from Camper Bunks to Counseler Road
+	p19->pEast = p20;	//Move from Camper Bunks to Counseler Bunks
+	p19->pNorth = 0;
+	p19->pSouth = 0;
+
+
+	p20->pWest = p19;	//Move from Counseler Bunks to Camper Bunks
+	p20->pEast = 0;
+	p20->pNorth = 0;
+	p20->pSouth = 0;
+}
+
+
+class Player : public Map
+{
+public:
+	Player();
+	Room* pLoc;
+
+	vector<string> playerInventory;
+
+	void getInventory();
+	void moveNorth();
+	void moveSouth();
+	void moveEast();
+	void moveWest();
+	void grabItem();
+	void dropItem();
+	void useItem();
+	int gameBeaten();
+};
+
+
+void Player::moveNorth()
+{
+	if (pLoc->pNorth == 0)
+	{
+		cout << "\nThis path seems blocked. You can't travel this way.";
+	}
+	else
+	{
+		pLoc = pLoc->pNorth;
+		pLoc->pRoomName();
+		pLoc->pRoomDesc();
+	}
+}
+
+void Player::moveSouth()
+{
+	if (pLoc->pSouth == 0)
+	{
+		cout << "\nThis path seems blocked. You can't travel this way.";
+	}
+	else
+	{
+		pLoc = pLoc->pSouth;
+		pLoc->pRoomName();
+		pLoc->pRoomDesc();
+	}
+}
+
+
+void Player::moveEast()
+{
+	if (pLoc->pEast == 0)
+	{
+		cout << "\nThis path seems blocked. You can't travel this way.";
+	}
+	else
+	{
+		pLoc = pLoc->pEast;
+		pLoc->pRoomName();
+		pLoc->pRoomDesc();
+	}
+}
+
+void Player::moveWest()
+{
+	if (pLoc->pWest == 0)
+	{
+		cout << "\nThis path seems blocked. You can't travel this way.";
+	}
+	else
+	{
+		pLoc = pLoc->pWest;
+		pLoc->pRoomName();
+		pLoc->pRoomDesc();
+	}
+}
+
+void Player::getInventory()
+{
+	vector<string>::iterator iter;
+
+	if (playerInventory.size() != 0)
+	{
+		cout << "\nPlayer inventory: " << endl;
+
+		for (iter = playerInventory.begin(); iter != playerInventory.end(); ++iter)
+		{
+			cout << *iter << endl;
+		}
+	}
+	else
+	{
+		cout << "\nYou don't have any items on you." << endl;
+	}
+}
+
+void Player::dropItem()
+{
+	vector<string>::iterator iter;
+	string item;
+
+	if (playerInventory.size() != 0)
+	{
+		cout << "\nWhat item do you want to drop? ";
+		cin >> item;
+
+
+		iter = find(playerInventory.begin(), playerInventory.end(), item);
+
+		if (item == "Flares" || item == "BasementKey" || item == "Fuse" || item == "Sweater" || item ==  "Axe" || item == "Flashlight" || item == "Dorm")
+		{
+			pLoc->roomInventory.push_back(item);
+			cout << "\nYou dropped the " << item << endl;
+			playerInventory.erase(iter);
+		}
+		else
+		{	
+			cout << "\nThat item isn't in your inventory." << endl;
+		}
+	}
+	else
+	{
+		cout << "\nYou don't have any items to drop." << endl;
+	}
+
+}
+
+void Player::grabItem()
+{
+	vector<string>::iterator iter;
+	string item;
+
+	if (pLoc->roomInventory.size() != 0)
+	{
+		cout << "\nWhat item do you want to take? ";
+		cin >> item;
+
+		iter = find(pLoc->roomInventory.begin(), pLoc->roomInventory.end(), item);
+
+		if (item == "Flares" || item == "BasementKey" || item == "Fuse" || item == "Sweater" || item == "Axe" || item == "Flashlight" || item == "Dorm")
+		{
+			playerInventory.push_back(item);
+			cout << "\nYou grab the " << item << endl;
+			pLoc->roomInventory.erase(iter);
+		}
+		else
+		{
+			cout << "\nThat item isn't here." << endl;
+		}
+	}
+	else
+	{
+		cout << "\nNo items here." << endl;
+	}
+}
+
+void Player::useItem()
+{
+	vector<string>::iterator iterItem;
+	vector<string>::iterator iterItemLocation;
+	string item;
+	string itemLocation;
+
+	if (useItemInventory.size() != 0)
+	{
+		cout << "\nWhat item do you want to use? ";
+		cin >> item;
+
+		iterItem = find(playerInventory.begin(), playerInventory.end(), item);
+
+			if (pLoc->rName == "Camp Middle")
+			{
+				if (item == "Flares")
+				{
+					iterItem = find(playerInventory.begin(), playerInventory.end(), item);
+
+					cout << "\nYou fire the Flares into the sky.\nYou watch as it glows brightly all over the campgrounds.\nSurely the neighbors of the campgrounds see that something is wrong and calls for help." << endl;
+					playerInventory.erase(iterItem);			
+				}
+			}
+			else
+			{
+				cout << "\nYou can't use this item.";
+			}
+			
+		if (item == "BasementKey")
+		{
+			if (pLoc->rName == "Bottom Floor")
+			{
+				cout << "\nYou put in the somewhat rusting, stoic looking key into the basement door.\nIt slowly creaks open, and the sound is spread throughout the cabin, cutting through the deathly silence like a knife. \nYou follow the steps downstairs.";
+				playerInventory.erase(iterItem);
+			}
+			else
+			{
+				cout << "\nYou can't use this item.";
+			}
+		}
+		if (item == "Fuse")
+		{
+			if (pLoc->rName == "Power Shed")
+			{
+				cout << "You put the spare fuse into the power box, and after a few minutes of messing with it, turn it back on. \nWHIIIRRR...You hear the box come back to life and see lights shining again. \nYou notice that the campgrounds also have the lights back on. \nAnywhere it was too dark to see should be easier to see now. \nYou realize that now you can go use the phone in the house to call the police on the second floor.";
+				playerInventory.erase(iterItem);
+			}
+			else
+			{
+				cout << "\nYou can't use this item.";
+			}
+		}
+		if (item == "Sweater")
+		{
+			if (pLoc->rName == "Jason's Shack")
+			{
+				cout << "You put on this dingy, old, tarnished looking sweater.\nIt looks like something a much older woman would wear.\nWho knows what use it really has.\nAt least you're warmer.";
+				playerInventory.erase(iterItem);
+			}
+			else
+			{
+				cout << "\nYou can't use this item.";
+			}
+		}
+		if (item == "Axe")
+		{
+			if (pLoc->rName == "Basement")
+			{
+				cout << "You hack away at the wooden structure blocking your way. \nAfterwards you notice a dark cold tunnel behind it, seemingly inviting you further into the darkness.";
+				playerInventory.erase(iterItem);
+			}
+			else
+			{
+				cout << "\nYou can't use this item.";
+			}
+			
+		}
+		if (item == "Flashlight")
+		{
+			if (pLoc->rName == "Counseler Bunks")
+			{
+				cout << "You cut on the flashlight. \nA bright light shines out from it. \nYou just put in brand new batteries, so this should last you all night if you need it.";
+				playerInventory.erase(iterItem);
+			}
+			else
+			{
+				cout << "\nYou can't use this item.";
+			}
+		}
+		
+	}
+
+}
+
+int Player::gameBeaten()
+{
+	vector<string>::iterator iter;
+	string item;
+
+	if (playerInventory.size() == 0)
+	{
+		cout << "\nAs you continue your search for the other campers, you hear something behind you. \nYou whip around to see a masked man running at you with a pickaxe. \nYou scramble to find an item on you to use, but it looks like you dropped everything you had like a fool. \nThe last thing you see is him jamming his pick into you, and a horrible breathing noise as he seems to gasp in excitment. \nYOU ARE DEAD...." << endl;
+		system("pause");
+		return 0;
+	}
+
+	if (pLoc->rName == "Road Block")
+	{
+		if (playerInventory.size() == 7)
+		{
+			cout << "\nYou turn around and see the killer right behind you, gaining speed. \nYou quickly take off, as they trail behind you. \nSoon you won't be able to run anymore. \nAs you pass through the camp towards where the road was blocked off, you notice red and blue lights flashing. \nYou get your second wind and run as fast as you can. \nYou are almost to the cars, but you don't see anyone. \nSLASH! You feel a sharp pain as you see blood pouring from your shoulder...you've been stabbed! \nAs you reel backwards and fall down you see the killer, now with his mask off, his face deformed and hideous! Right as he raises his pickaxe to strike you down...BANG! \nYou hear multiple gunshots from behind you as the killer is stumbling backwards, blood streaming from his wounds. \nHe makes one last desperate stab at you when...BANG! \nHe falls backwards having been shot in the head. \nYou quickly run towards the police and they get you to safety. \nYou tell them about what you saw and happened to your friends. \nIt seems like you made it out alive. When you turn to get one last look at the killer, you become frozen with fear...The body is gone! \n........The Camp Killer is still out there!!!" << endl;
+			system("pause");
+			return 0;
+		}
+	}	
+}
+
+Player::Player()
+{
+	pLoc = mStart;
+	playerInventory.push_back("Dorm");
+}
+
+int main()
+{
+	Map GameMap;
+	Player Counseler;
+	char choice;
+	bool playing = true;
+
+	cout << "\nQ ends the game.\n" << endl;
+	cout << "\nN goes north." << endl;
+	cout << "\nS goes south." << endl;
+	cout << "\nE goes east." << endl;
+	cout << "\nW goes west." << endl;
+
+	Counseler.pLoc->pRoomName();
+	Counseler.pLoc->pRoomDesc();
+
+	while (playing)
+	{
+		cout << "\nWhat do you do?\n";
+		cin >> choice;
+
+		switch (choice)
+		{
+		case 'Q':
+			cout << "\nGame Over..." << endl; system("pause"); return 0;
+		case 'N':
+			Counseler.moveNorth(); Counseler.gameBeaten(); break;
+		case 'S':
+			Counseler.moveSouth(); Counseler.gameBeaten(); break;
+		case 'E':
+			Counseler.moveEast(); Counseler.gameBeaten(); break;
+		case 'W':
+			 Counseler.moveWest(); Counseler.gameBeaten(); break;
+		case 'I':
+			Counseler.getInventory(); break;
+		case 'L':
+			Counseler.pLoc->getRoomItems(); break;
+		case 'D':
+			Counseler.dropItem(); break;
+		case 'G':
+			Counseler.grabItem(); break;
+		case 'U':
+			Counseler.useItem(); break;
+		}
+	}
+}

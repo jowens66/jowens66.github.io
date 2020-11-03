@@ -1,0 +1,302 @@
+/*Mobile*/
+@media only screen and (max-width: 480px) {
+	h1{
+		display: none;
+	}
+	
+	h4{
+		display: block;
+		text-align: center;
+	}
+	
+}
+
+/*Desktop and Tablet*/
+@media only screen and (min-width: 768px){
+	h2{
+		display: none;
+	}
+	
+}
+
+.navbar-collapse{
+	padding-left: 0px;
+}
+
+.nav.navbar-nav li a {
+    
+	font-family: 'Montserrat', sans-serif;
+	color: white !important;
+}
+
+.navbar-inverse .navbar-brand{
+	
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+}
+
+.navbar-inverse .navbar-nav>.active>a, 
+.navbar-inverse .navbar-nav>.active>a:focus, 
+.navbar-inverse .navbar-nav>.active>a:hover{
+	background-color: #696969 !important;
+	border-left: 15px solid #33cc33;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover{
+	color: #33cc33 !important;
+}
+a{
+	color: #38A738 !important;
+}
+
+a:link{
+	color: 33cc33;
+	text-decoration:none !important;
+}
+
+a:visited{
+	color: #009900;
+}
+
+a:hover{
+	color: #33cc33 !important;
+	text-decoration: none;
+	text-shadow: 0 0 5px #33cc33;
+}
+
+a:active{
+	color: #009900 !important;
+	text-decoration:none;
+} 
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    width: 5%;
+}
+
+.subject{
+	height: 200px;
+}
+
+#accordion{
+	word-wrap: break-word;
+}
+
+#ui-id-1, #ui-id-3, #ui-id-5, #ui-id-7{
+	outline:none;
+	background-color:#33cc33;
+	color: black;
+	text-align: center;
+	border-style: groove;
+	border-width: 7px;
+	border-color: #38A738;
+}
+
+#ui-id-2, #ui-id-4, #ui-id-6, #ui-id-8{
+	color: white;
+	text-align:center;
+	margin-bottom: 0;
+}
+
+#ui-id-2 ul li, #ui-id-4 ul li, #ui-id-6 ul li{
+	text-align: center;
+	margin: 0 auto;
+	list-style-type: none;
+}
+
+input[type=text], select, textarea{
+	width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #33cc33;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=email]{
+	width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+label{
+	color: white;
+	font-weight: 5;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+body{
+	background-color: black;
+}
+
+p{
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: 'Orbitron', sans-serif;
+	color: white;
+}
+
+footer h4{text-align: center;}
+
+h1{
+	text-align: center;
+}
+
+h3{
+    font-size:30px;
+}
+
+img{
+	width:100%;
+}
+
+
+#myImg5{
+	width:65%;
+	margin-left: 65px;
+}
+
+#myImg4{
+	width: 90%;
+}
+
+#myImg7{
+	width: 50%;
+}
+
+#myImg{
+	width: 90%;
+}
+
+#myImg, #myImg2{
+	margin-bottom: 35px;
+}
+
+#myImg9{
+	width: 50%;
+}
+
+
+
+#myImg, #myImg2, #myImg3, #myImg4, #myImg5, #myImg6, #myImg7, #myImg8, #myImg9{
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover, #myImg2:hover, #myImg3:hover, #myImg4:hover, #myImg5:hover, #myImg6:hover, #myImg7:hover, #myImg8:hover, #myImg9:hover{opacity: 0.7;}
+
+/* The Modal (background) */
+.modal, .modal2, .modal3, .modal4, .modal5, .modal6, .modal7, .modal8, .modal9 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+
+
+/* Modal Content (image) */
+.modal-content, .modal-content2, .modal-content3, .modal-content4, .modal-content5, .modal-content6, .modal-content7, .modal-content8, .modal-content9 {
+    margin: auto;
+    display: block;
+    width: 45%;
+    max-width: 1200px;
+}
+
+/* Caption of Modal Image */
+#caption, #caption2, #caption3, #caption4, #caption5, #caption6, #caption7, #caption8, #caption9 {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption,.modal-content2, 
+#caption2, .modal-content3, #caption3, 
+.modal-content4, #caption4, .modal-content5, #caption5, 
+.modal-content6, #caption6, .modal-content7, #caption7,
+.modal-content8, #caption8, .modal-content9, #caption9 {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close, .close2, .close3, .close4, .close5, .close6, .close7, .close8, .close9 {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus, .close2:hover,
+.close2:focus, .close3:hover,
+.close3:focus, .close4:hover,
+.close4:focus, .close5:hover,
+.close5:focus, .close6:hover,
+.close6:focus, .close7:focus,
+.close7:hover, .close8:hover,
+.close8:focus, .close9:hover,
+.close9:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content, .modal-content2, .modal-content3, .modal-content4, .modal-content5, .modal-content6, .modal-content7, .modal-content8, .modal-content9 {
+        width: 100%;
+    }
+}

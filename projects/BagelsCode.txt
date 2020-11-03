@@ -1,0 +1,91 @@
+'Programmer: Jesse Owens
+'Project: Week 10 VB Bagel Assignment
+
+Option Strict On
+Option Explicit On
+
+Public Class FrmBagels
+    Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
+        Me.Close()
+    End Sub
+
+    Private Sub FrmBagels_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TstsDN.Text = "Jesse Owens " & DateAndTime.Today
+
+        LstBagels.Items.Add("Blueberry")
+        LstBagels.Items.Add("Chocolate Chip")
+        LstBagels.Items.Add("Whole Wheat")
+        LstBagels.Items.Add("Asiago")
+
+        CboBagels.Items.Add("Plain")
+        CboBagels.Items.Add("Pumpernickel")
+        CboBagels.Items.Add("Sesame")
+        CboBagels.Items.Add("Garlic")
+        CboBagels.Items.Add("Peanut Butter")
+        CboBagels.Items.Add("Onion")
+
+        LblBagelNumbOutp.Text = CStr(LstBagels.Items.Count)
+
+        CboBagels.Sorted = True
+        LstBagels.Sorted = True
+    End Sub
+
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
+        CboBagels.Sorted = True
+        LstBagels.Sorted = True
+        Dim strAddBagel As String
+        Dim i As Integer
+        Dim match As Boolean = False
+
+
+        Try
+            'validation
+            If CboBagels.Text = "" Then
+                MessageBox.Show("Enter a bagel", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                CboBagels.Focus()
+            Else
+
+                'input
+                strAddBagel = CboBagels.Text
+
+                'processing and output      
+                For i = 0 To LstBagels.Items.Count - 1
+                    If strAddBagel.ToUpper = LstBagels.Items(i).ToString().ToUpper Then
+                        MessageBox.Show("Bagel was not added because it was a duplicate", "Duplicates not allowed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        match = True
+                        Exit For
+                    End If
+                Next
+
+                If match = False Then
+                    LstBagels.Items.Add(strAddBagel)
+                    LblBagelNumbOutp.Text = CStr(LstBagels.Items.Count)
+                End If
+
+
+            End If
+
+        Catch
+            MessageBox.Show("Please select, or enter a bagel.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+    End Sub
+
+    Private Sub BtnRemove_Click(sender As Object, e As EventArgs) Handles BtnRemove.Click
+        If LstBagels.Text = "" Then
+            MessageBox.Show("You must select a Bagel from the list box to remove", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            LstBagels.Items.Remove(LstBagels.Text)
+            LblBagelNumbOutp.Text = CStr(LstBagels.Items.Count)
+        End If
+    End Sub
+
+    Private Sub BtnClearList_Click(sender As Object, e As EventArgs) Handles BtnClearList.Click
+        Dim answer As DialogResult
+        answer = MessageBox.Show("Are you sure you want to clear ALL of the bagels in the list box?", "Clear Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+
+        If answer = System.Windows.Forms.DialogResult.Yes Then
+            LstBagels.Items.Clear()
+        End If
+        LblBagelNumbOutp.Text = CStr(LstBagels.Items.Count)
+    End Sub
+End Class
